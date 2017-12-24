@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.fyb.entity.Users">
+
+    <select id="findUsers" resultMap="Users">
+        select * from users
+        <if test="id!=null">
+            where id =#{id}
+        </if>
+    </select>
+    <!-- 自定义映射关系集合：主要包含对于一些自定义操作的配置，如不一致的属性和字段 -->
+    <resultMap id="Users" type="com.fyb.entity.Users">
+        <!-- 绑定id主键 -->
+        <id property="id" column="id"></id>
+
+        <collection property="addresses" column="id" ofType="com.fyb.entity.Address" select="getAddress"></collection>
+    </resultMap>
+
+    <select id="getAddress" resultType="com.fyb.entity.Address">
+        select * from address where userid = #{id}
+    </select>
+
+    <sql id="user_fields">
+        username, userpass, nickname, createTime, updateTime, lastLogin, userstatus
+    </sql>
+
+    <insert id="addUser" useGeneratedKeys="true" keyProperty="id">
+        insert into users( <include refid="user_fields"></include>)
+        values(#{username},#{userpass}, #{nickname}, #{createTime}, #{updateTime}, #{lastLogin}, #{userStatus})
+    </insert>
+
+    <update id="updateUser">
+        update users
+        <set>
+            <if test="username != null">username = #{name},</if>
+            <if test="userpass != null">userpass = #{userpass},</if>
+            <if test="nickname != null">nickname = #{nickname},</if>
+            <if test="createTime != null">createTime = #{createTime},</if>
+            <if test="updateTime != null">updateTime = #{updateTime},</if>
+            <if test="lastLogin != null">lastlogin = #{lastLogin},</if>
+            <if test="userStatus != null">userStatus = #{userStatus},</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delUser">
+        delete from users where id = #{id}
+    </delete>
+</mapper>
