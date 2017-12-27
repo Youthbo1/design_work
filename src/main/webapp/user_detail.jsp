@@ -30,7 +30,7 @@
             <p><a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/addusers.jsp" role="button">新增用户</a>
             </p>
             <br><br><br>
-            <p><a  class="btn btn-primary btn-lg" href="begin.jsp" role="button"> 查看全部用户信息</a></p>
+            <p><a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/index" role="button"> 查看全部用户信息</a></p>
         </div>
     </div>
 

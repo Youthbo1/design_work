@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/12/24.
  */
-@WebServlet(name = "UsersFindServlet",urlPatterns = "/index")
+@WebServlet(name = "UsersFindServlet",urlPatterns = "/index" )
 public class UsersFindServlet extends HttpServlet {
 
     private UsersDAO usersDAO=new UsersDAO();
@@ -25,7 +25,7 @@ public class UsersFindServlet extends HttpServlet {
 
         request.setAttribute("usersList",list);
 
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.getRequestDispatcher("1.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
