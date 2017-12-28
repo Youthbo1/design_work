@@ -42,7 +42,7 @@ public class UsersDelServlet extends HttpServlet {
             usersDAO.updateUsers(user);
         }
         // 跳转到首页
-        response.sendRedirect("/index");
+        response.sendRedirect(request.getContextPath()+"/index");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

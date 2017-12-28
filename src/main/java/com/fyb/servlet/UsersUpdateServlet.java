@@ -32,7 +32,7 @@ public class UsersUpdateServlet extends HttpServlet {
         usersDAO.updateUsers(user);
 
         // 查看更新后数据
-        response.sendRedirect("/user_detail?id=" + user.getId());
+        response.sendRedirect(request.getContextPath()+"/user_detail?id=" + user.getId());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

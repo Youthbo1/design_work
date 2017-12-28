@@ -7,9 +7,9 @@
 </head>
 <body>
 <%
-    //response.sendRedirect("/1.jsp");${pageContext.request.contextPath}/index
+    response.sendRedirect(request.getContextPath()+"/index");
     //request.getRequestDispatcher("1.jsp").forward(request,response);
 %>
-<a href="${pageContext.request.contextPath}/index" > 查看全部用户信息</a></p>
+<%--<a href="${pageContext.request.contextPath}/index" > 查看全部用户信息</a></p>--%>
 </body>
 </html>

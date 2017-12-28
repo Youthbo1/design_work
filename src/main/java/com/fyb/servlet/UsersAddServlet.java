@@ -31,7 +31,7 @@ public class UsersAddServlet extends HttpServlet {
         user = usersDAO.addUser(user);
 
         // 查看刚新增的用户数据
-        response.sendRedirect("/user_detail?id=" + user.getId());
+        response.sendRedirect(request.getContextPath()+"/user_detail?id=" + user.getId());
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
