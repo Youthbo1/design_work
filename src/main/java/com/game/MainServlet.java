@@ -17,7 +17,6 @@ import java.util.ArrayList;
 @WebServlet(name = "game" ,urlPatterns = "/game")
 public class MainServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         Function function = new Function();
         String str;
         ArrayList<String> arrayList=new ArrayList<String>();

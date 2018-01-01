@@ -15,15 +15,10 @@ import java.io.InputStream;
  * \封装：使用Mybatis框架的一些步骤
  */
 public class SqlSessionFactoryUtils {
-
     private static String RESOURCE = "mybatis-config.xml";
-
     private static SqlSessionFactory sqlSessionFactory;
-
     private static ThreadLocal<SqlSession> threadLocal = new ThreadLocal<SqlSession>();
-
     //创建一个初始化SqlSessionFactory的方法
-
     public static void initSqlSessionFactry() {
         try {
             InputStream is = Resources.getResourceAsStream(RESOURCE);
@@ -33,12 +28,10 @@ public class SqlSessionFactoryUtils {
             e.printStackTrace();
         }
     }
-
     //获取工厂对象的方法
     public static SqlSessionFactory getSqlSessionFactory() {
         return sqlSessionFactory;
     }
-
     // 关闭SqlSession的方法
     public static void close() {
         SqlSession session = threadLocal.get();
